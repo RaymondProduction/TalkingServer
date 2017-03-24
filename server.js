@@ -30,6 +30,22 @@ server.use(bodyParser.urlencoded({
 server.get('/speak/:speech', getRespond);
 server.post('/speak', postRespond);
 
-server.listen(8080, function() {
+var port = parametr('--port');
+if (!port) {port = parametr('-p');};
+if (!port) {port = parametr('--PORT');};
+//  если порта нет то используем по умолчанию 8080
+if (!port) {port = 8080;}
+
+server.listen(port, function() {
   console.log(server.name, server.url);
 });
+
+function parametr(par) {
+  var res;
+  process.argv.forEach(function(item, i, arr) {
+    if (par == item) {
+      res = process.argv[i + 1];
+    }
+  });
+  return res;
+}

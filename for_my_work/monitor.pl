@@ -4,14 +4,14 @@ use warnings;
 
 use LWP::Simple;
 
+my $filename=$ARGV[1];
+my $ipANDport=$ARGV[0];
+
 sub speak{
  my $contents;
  my $st = shift;
- $contents = get("http://localhost:8080/speak/".$st);
+ $contents = get("http://".$ipANDport."/speak/".$st);
 };
-
-
-my $filename=$ARGV[0];
 
 if (!$filename) {$filename='test.txt';};
 
@@ -20,6 +20,11 @@ my $old=0;
 
 
 $| = 1; # Disable output buffering
+
+
+open SPEECH, 'sentence.txt';
+my $sentence = <SPEECH>;
+close SPEECH;
 
 while (1) {
   $i=0;
@@ -32,7 +37,7 @@ while (1) {
   #print ".";
   if ($i!=$old) {
     $old=$i;
-    speak("Изменение в файле логов. Очевидно попытка авторизации");
+    speak($sentence);
     print "\n\e[31mdone";
     print "\e[0m\n";
   };
