@@ -1,6 +1,6 @@
 # Talking Server
 
-##The simple server which can speak
+## The simple server which can speak
 
 This server must speak when on client computer change log file.
 If log file change, a script written by a pearl makes a request to the server.
@@ -11,7 +11,7 @@ If log file change, a script written by a pearl makes a request to the server.
 The Festival Speech Synthesis System is a
 general multi-lingual speech synthesis system
 ```
-sudo apt install festival
+sudo apt-get install festival
 sudo apt-get install festvox-ru
 ```
 For test speech
