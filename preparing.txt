@@ -1,0 +1,2 @@
+автозагрузка
+sudo nano /etc/rc.local
