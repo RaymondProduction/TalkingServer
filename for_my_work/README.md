@@ -1,4 +1,5 @@
-Чтоб запустити скрипт голосового сповіщення команда.
+
+### Запуск скрипта голосового сповіщення команда.
 
 Скріпт в папці home/raymond/TalkingServer/for_my_work
 ```
@@ -8,11 +9,13 @@ node monitor.js -a <ip хоста: порт сервера> -log <шлях до 
 ```
 node monitor.js -a 127.0.0.1:8080 -log /home/raymond/putty.log
 ```
+### За допомогою putty сворюємо файл логов
+
 Для того щоб був створений файл логов. Треба створити з*єднання
 
 в putty з параметроми в розділі Loggin.
 
-Log file name:
+***Log file name:***
 
  бажано вибрати /home/<ім*я користувача>/putty.log
 
@@ -20,25 +23,25 @@ Log file name:
 
 Пставим перемикач  /   в позицію
 
-Sesssion logging: * All sessinon output
+***Sesssion logging: * All sessinon output***
 
 
 Пставим перемикач                        /   в позицію
 
-What to do if the log file alrady exist: * Ask the user every time
+***What to do if the log file alrady exist: * Ask the user every time***
 
 Поставте прапорець * Flush log file frequently
 
 
 Прибрати прапорець * Omit known password fields
 
-Задопомогою ssh також можно робити файл логов
+### Задопомогою ssh також можно робити файл логов
 ```
-ssh <user>@<host> -p port | tee -a <log file>
+$ ssh <user>@<host> -p port | tee -a <log file>
 ```
 **Приклад**
 ```
-ssh raymond@127.0.0.1 -p 22 | tee -a /home/raymond/ssh.log
+$ ssh raymond@127.0.0.1 -p 22 | tee -a /home/raymond/ssh.log
 ```
 Також для автоматизації може знадобитись поставити ключ
 
@@ -46,7 +49,7 @@ ssh raymond@127.0.0.1 -p 22 | tee -a /home/raymond/ssh.log
 Генеруємо клуч
 
 ```
-$ssh-keygen -t rsa -b 2048
+$ ssh-keygen -t rsa -b 2048
 ```
 Далі просто натискаємо [Enter]
 ```
@@ -64,7 +67,7 @@ user@host password:
 ```
 Спробуйте зайти
 ```
-ssh <user>@<host> -p port
+$ ssh <user>@<host> -p port
 ```
 
 Для автоматизації перехоплення логів, можна скористатись командою tail.
