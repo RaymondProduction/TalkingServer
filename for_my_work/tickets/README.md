@@ -1,5 +1,11 @@
 # Tickets monitor system
 
+## Install
+
+```
+$sudo apt-get install phantom
+```
+
 ## Run system for monitoring
 This script which write log file of the number of tickets
 ```
