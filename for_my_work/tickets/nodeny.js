@@ -29,6 +29,6 @@ page.open("http://91.219.252.234/cgi-bin/stat.pl", function(status) {
         t_old = t_current;
       }
       //phantom.exit();
-    }, 5000);
+    }, 60000);
   }
 });
