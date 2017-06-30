@@ -1,17 +1,25 @@
+var system = require('system');
+var argv = system.args;
 var page = require('webpage').create();
+//var password = parametr('-p');
+//var user = parametr('-u');
+//var logfile = parametr('-l');
+//var adress = parametr('-a');
 var fs = require('fs');
 var t_old = fs.read('tickets.log');
 var t_current;
-page.open("http://91.219.252.234/cgi-bin/stat.pl", function(status) {
+//console.log('Url:'+adress+' log file: '+logfile);
+page.open("http://91.218.253.233/cgi-bin/stat.pl", function(status) {
   if (status === "success") {
     page.onConsoleMessage = function(msg, lineNum, sourceId) {
       //console.log('CONSOLE: ' + msg + ' (from line #' + lineNum + ' in "' + sourceId + '")');
       console.log(msg);
     };
     page.evaluate(function() {
+
       console.log('Log in');
-      document.getElementById("_uu").value = "raymond";
-      document.getElementById("_pp").value = "parol1987";
+      document.getElementById("_uu").value = "user";
+      document.getElementById("_pp").value = "password";
       document.getElementsByClassName("nav_button")[0].click();
       // page is redirecting.
     });
@@ -32,3 +40,13 @@ page.open("http://91.219.252.234/cgi-bin/stat.pl", function(status) {
     }, 60000);
   }
 });
+
+function parametr(par) {
+  var res;
+  argv.forEach(function(item, i, arr) {
+      if (par == item) {
+      res = argv[i + 1];
+    }
+  });
+  return res;
+}
