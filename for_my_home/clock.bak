@@ -28,7 +28,7 @@ function parametr(par) {
 
 function sayTime(){
   var d = new Date();
-  var hours = d.getHours();
+  var hours = parametr('-h');// d.getHours();
   var minutes = d.getMinutes();
   if (hours == 0) hoursSt =' ноль часов';
   if (hours == 1) hoursSt =' час ночи';
@@ -61,7 +61,7 @@ function weather(){
 
 //weather();
 
-//sayTime();
-cron.schedule('*/30 * * * *', sayTime);
+sayTime();
+//cron.schedule('*/30 * * * *', sayTime);
 //917c8abb1fab87beafd774e86ea6121a
 //http://api.openweathermap.org/data/2.5/find?q=Boryspil,ua&type=like&APPID=917c8abb1fab87beafd774e86ea6121a
