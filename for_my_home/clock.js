@@ -33,9 +33,14 @@ function sayTime(){
   if (hours == 0) hoursSt =' ноль часов';
   if (hours == 1) hoursSt =' час ночи';
   if ((hours > 1 && hours<= 4) || (hours>=22 && hours<23)) hoursSt =' '+hours+' часа';
-  if (hours >4 && hours<= 20) hoursSt =' '+hours+' часов';
+  if (hours >4 && hours<17) hoursSt =' '+hours+' часов';
+  if (hours == 17) hoursSt =' семнадцать часов';
+  if (hours == 18) hoursSt =' восемнадцать часов'
+  if (hours == 19) hoursSt =' девятнадцать часов';
+  if (hours == 20) hoursSt =' двадцать часов'
   if (hours == 21) hoursSt =' двадцать первый час';
-   
+  if (hours == 22) hoursSt =' двадцать два  часа';
+
   if (d.getMinutes()==0) {
     st = 'Время '+hoursSt+' ровно';
   } else {
