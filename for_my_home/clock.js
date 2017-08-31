@@ -2,6 +2,32 @@
 var a = parametr('-a') ? parametr('-a') : '127.0.0.1:8080';
 var cron = require('node-cron');
 
+var hoursSt = [
+ 'ноль часов',
+ 'час ночи',
+ 'два часа ночи',
+ 'три часа ночи',
+ 'четыре часа ночи',
+ 'пять часов утра',
+ 'шесть часов утра',
+ 'семь часов утра',
+ 'восемь часов утра',
+ 'девять часов утра',
+ 'десять часов',
+ 'одинадцать часов',
+ 'двенадцать часов',
+ 'час дня',
+ 'два часа дня',
+ 'три часа',
+ 'четыре часа дня',
+ 'пять часов',
+ 'шесть часов вечера',
+ 'семь часов вечера',
+ 'восемь часов вечера',
+ 'девять часов веера',
+ 'десять часов',
+ 'одинадцать часов',
+]
 function speakDistance(st) {
       // GET запрос на сервер
       var http = require('http');
@@ -30,21 +56,10 @@ function sayTime(){
   var d = new Date();
   var hours = d.getHours();
   var minutes = d.getMinutes();
-  if (hours == 0) hoursSt =' ноль часов';
-  if (hours == 1) hoursSt =' час ночи';
-  if ((hours > 1 && hours<= 4) || (hours>=22 && hours<23)) hoursSt =' '+hours+' часа';
-  if (hours >4 && hours<17) hoursSt =' '+hours+' часов';
-  if (hours == 17) hoursSt =' семнадцать часов';
-  if (hours == 18) hoursSt =' восемнадцать часов'
-  if (hours == 19) hoursSt =' девятнадцать часов';
-  if (hours == 20) hoursSt =' двадцать часов'
-  if (hours == 21) hoursSt =' двадцать первый час';
-  if (hours == 22) hoursSt =' двадцать два  часа';
-
   if (d.getMinutes()==0) {
-    st = 'Время '+hoursSt+' ровно';
+    st = 'Время '+hoursSt[hours]+' ровно';
   } else {
-    st = 'Время '+hoursSt+', '+d.getMinutes()+' минут';
+    st = 'Время '+hoursSt[hours]+', '+d.getMinutes()+' минут';
   };
   speakDistance(st);
 }
